@@ -3,10 +3,12 @@ from cryptography.fernet import Fernet
 class EncryptionHandler:
     def __init__(self):
         self.client_keys = {}
+
 	def init_with_key(self):
 		with open("privatekey.txt" , "rb" ) as file:
 			self.key = file.read()
 			self.f= Fernet(self.key)
+			
 	def make_key(self):
 	    key = Fernet.generate_key()
 		self.key = key
